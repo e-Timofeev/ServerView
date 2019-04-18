@@ -1,0 +1,664 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EcmServerCard</name>
+    </assembly>
+    <members>
+        <member name="T:EcmServerCard.EcmServerListDataSet">
+             <summary>
+            Represents a strongly typed in-memory cache of data.
+            </summary>
+        </member>
+        <member name="T:EcmServerCard.EcmServerListDataSet.ArchiveListDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:EcmServerCard.EcmServerListDataSet.ArchiveListRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:EcmServerCard.EcmServerListDataSet.ArchiveListRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:EcmServerCard.EcmServerListDataSetTableAdapters.ArchiveListTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:EcmServerCard.EcmServerListDataSetTableAdapters.TableAdapterManager">
+             <summary>
+            TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.EcmServerListDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(EcmServerCard.EcmServerListDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Update rows in top-down order.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.EcmServerListDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(EcmServerCard.EcmServerListDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Insert rows in top-down order.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.EcmServerListDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(EcmServerCard.EcmServerListDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Delete rows in bottom-up order.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.EcmServerListDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.EcmServerListDataSetTableAdapters.TableAdapterManager.UpdateAll(EcmServerCard.EcmServerListDataSet)">
+             <summary>
+            Update all changes to the dataset.
+            </summary>
+        </member>
+        <member name="T:EcmServerCard.EcmServerListDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+             <summary>
+            Update Order Option
+            </summary>
+        </member>
+        <member name="T:EcmServerCard.EcmServerListDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+             <summary>
+            Used to sort self-referenced table's rows
+            </summary>
+        </member>
+        <member name="T:EcmServerCard.Формы.Archive">
+            <summary>
+            Форма для отображения архивных машин.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Формы.Archive.#ctor">
+            <summary>
+            Инициализация компонентов формы.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Формы.Archive.GetData">
+            <summary>
+            Загрузить данные в случае подключение.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Формы.Archive.Archive_Load(System.Object,System.EventArgs)">
+            <summary>
+            Загрузка формы с асихронным вызовом делегата по заполнению из базы в родительском потоке.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:EcmServerCard.Формы.Archive.SetWidth">
+            <summary>
+            Размер столбцов
+            </summary>
+        </member>
+        <member name="F:EcmServerCard.Формы.Archive.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Формы.Archive.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:EcmServerCard.Формы.Archive.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.MSTSC.#ctor">
+            <summary>
+            Инициализация
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.MSTSC.#ctor(System.String,System.String)">
+            <summary>
+             Определяет параметры для подключения
+            </summary>
+            <param name="ip"></param>
+            <param name="domain"></param>
+        </member>
+        <member name="F:EcmServerCard.MSTSC.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.MSTSC.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:EcmServerCard.MSTSC.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:EcmServerCard.CMD">
+            <summary>
+            Проверка доступа по сети для заданного списка хостов.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.CMD.PingAsync(System.String)">
+            <summary>
+            Возвращает статус машин в локальной сети.
+            Асинхронная версия.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.CMD.dgStatus(System.Data.DataTable,System.Int32)">
+            <summary>
+            Перебирает значения столбца с IP-адресами в DataTable.
+            Проверяет состояние в сети командой ping.send(host).
+            </summary>
+            <param name="dg">DataTable, переданный bindingSourse.</param>
+            <param name="tableIndex">индекс таблицы 1-физических,2-виртуальных серверов</param>
+        </member>
+        <member name="T:EcmServerCard.DB">
+            <summary>
+            Класс для взаимодействия с базой данных.
+            </summary>
+        </member>
+        <member name="F:EcmServerCard.DB.connection">
+            <summary>
+            Строка для установки соединения с базой. Плохо хранить в таком открытом виде, 
+            но для локальной задачи внутри компании - задачу решает. Все пароли известны. 
+            В App.config хранить еще хуже, даже код не надо через dotpeak смотреть.
+            SecureString, как возможнное решение, если потребуется.
+            Windows Authentication не подходит.
+            </summary>
+        </member>
+        <member name="F:EcmServerCard.DB.CommandMain">
+            <summary>
+            SQL команда для выборки всех физических серверов.
+            </summary>
+        </member>
+        <member name="F:EcmServerCard.DB.CommandDetail">
+            <summary>
+            SQL команда для выборки виртуальных серверов.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.DB.GetData(System.Windows.Forms.BindingSource,System.Windows.Forms.BindingSource)">
+            <summary>
+            Получение данных из двух таблиц в базе.
+            Взято с MSDN.
+            </summary>
+            <param name="main">Главная</param>
+            <param name="detail">Дочерняя</param>
+        </member>
+        <member name="M:EcmServerCard.DB.InsertData(System.String,System.String,System.String,System.String)">
+            <summary>
+            Добавление нового серерва в таблицу физических серверов.
+            </summary>
+            <param name="serv">имя сервера</param>
+            <param name="ip">адрес</param>=х 
+            <param name="dc">домен</param>
+            <param name="desc">описание</param>
+        </member>
+        <member name="M:EcmServerCard.DB.InsertData(System.String,System.String,System.String,System.String,System.Byte)">
+            <summary>
+            Переопределенный метод вставки нового сервера для таблицы виртуальных серверов.
+            </summary>
+            <param name="serv">имя</param>
+            <param name="ip">адрес</param>
+            <param name="dc">домен</param>
+            <param name="desc">описание</param>
+            <param name="ID">id в таблице физ. серверов</param>
+        </member>
+        <member name="M:EcmServerCard.DB.DeleteDataPhy(System.Byte)">
+            <summary>
+            Удаляем физ. сервер по ID.
+            Каскадно удаляются дочерние виртуальные серверы.
+            </summary>
+            <param name="ServerID">ID удаляемого сервера</param>
+        </member>
+        <member name="M:EcmServerCard.DB.DeleteDataVir(System.Byte)">
+            <summary>
+            Удаляем вир. сервер по ID.
+            </summary>
+            <param name="ServerID"></param>
+        </member>
+        <member name="M:EcmServerCard.DB.UpdateDataPhy(System.Windows.Forms.DataGridView)">
+            <summary>
+            Внесение изменений в таблицу физических серверов.
+            </summary>
+            <param name="dg"></param>
+        </member>
+        <member name="M:EcmServerCard.DB.UpdateDataVir(System.Windows.Forms.DataGridView)">
+            <summary>
+            Внесение изменений в таблицу виртуальных серверов.
+            </summary>
+            <param name="dg"></param>
+        </member>
+        <member name="M:EcmServerCard.DB.UpdateStatusPhy(System.Byte)">
+            <summary>
+            Пометить как архив выделенный сервер.
+            </summary>
+            <param name="ServerID"></param>
+        </member>
+        <member name="M:EcmServerCard.DB.UpdateStatusVir(System.Byte)">
+            <summary>
+            Пометить как архив выделенный сервер.
+            </summary>
+            <param name="ServerID"></param>
+        </member>
+        <member name="M:EcmServerCard.DB.UpdateStatusPhy2(System.Byte)">
+            <summary>
+            Снять метку неактивности.
+            </summary>
+            <param name="ServerID"></param>
+        </member>
+        <member name="M:EcmServerCard.DB.UpdateStatusVir2(System.Byte)">
+            <summary>
+            Снять метку неактивности.
+            </summary>
+            <param name="ServerID"></param>
+        </member>
+        <member name="F:EcmServerCard.Main.PhyRowID">
+            <summary>
+            Индекс выделенной строки грида физических серверов.
+            </summary>
+        </member>
+        <member name="F:EcmServerCard.Main.VirRowID">
+            <summary>
+            Индекс выделенной строки грида виртуальных серверов.
+            </summary>
+        </member>
+        <member name="F:EcmServerCard.Main.PhyServerID">
+            <summary>
+            ID выделенного сервера (PK в PhyServers).
+            </summary>
+        </member>
+        <member name="F:EcmServerCard.Main.VirServerID">
+            <summary>
+            ID выделенного сервера (PK в VirServers).
+            </summary>
+        </member>
+        <member name="F:EcmServerCard.Main.connection">
+            <summary>
+             Создает экземпляр класса DB для работы с базой данных на сервере.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.#ctor">
+            <summary>
+            Точка входа
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.ClearDatagridview(System.Windows.Forms.DataGridView,System.Windows.Forms.BindingSource)">
+            <summary>
+            Очистка таблицы для корректного обновления содержимого таблиц.
+            </summary>
+            <param name="grid">Сам контрол</param>
+            <param name="binding">Источник привязки данных</param>
+        </member>
+        <member name="M:EcmServerCard.Main.SetGridProperties">
+            <summary>
+            Устанавливает нужные свойства для таблиц. Используется при загрузке и обновлении данных.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.UpdateAllDataGridView">
+            <summary>
+            Последовательно выполняет очистку и повторную загрузку данных из базы.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.FilterGrid(System.Windows.Forms.DataGridView)">
+            <summary>
+            Отображение данных выделенной строки для удобства редактирования.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.UpdateGridAdapter(System.Windows.Forms.DataGridView,System.Byte)">
+            <summary>
+            Обновление грида из заполненных текстбоксов. Если у них пустые значения, то записывается пустая строка.
+            </summary>
+            <param name="grid">Нужный грид</param>
+            <param name="index">Индекс строки, который был выделении</param>
+        </member>
+        <member name="M:EcmServerCard.Main.BugSelectRowInDatagridview(System.Windows.Forms.DataGridView)">
+            <summary>
+            Меняем режим выделения строки на выделение ячейки, иначе некорректно работает получения значения для VirServerID.
+            Баг datagridview. 
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.FullSelectRow(System.Windows.Forms.DataGridView)">
+            <summary>
+            Выделяет всю строку при принудительноой установке режима вся строка. 
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.ExportDatatableToHtml(System.Data.DataTable)">
+            <summary>
+            Преобразует структуру DataTable в html код. 
+            </summary>
+            <param name="dt"></param>
+            <returns>Код html, созданные по DataTable</returns>
+        </member>
+        <member name="M:EcmServerCard.Main.ExportToHTML">
+            <summary>
+            Экспорт в HTML данных из объединненых объектов DataTable.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.Main_Shown(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик события загрузки формы.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.toolUpdate_Click(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик сохранения всех изменений в базу.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.dataGridView1_SelectionChanged(System.Object,System.EventArgs)">
+            <summary>
+            Обход грида физ. серверов по выделенным строкам.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.dataGridView3_SelectionChanged(System.Object,System.EventArgs)">
+            <summary>
+            Обход грида вир. серверов по выделенным строкам.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.физическийСерверToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            Добавление нового физ. сервера в базу данных.
+            </summary>          
+        </member>
+        <member name="M:EcmServerCard.Main.виртуальныйСерверToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            Добавление нового вир. сервера в базу данных.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.deletePhy_Click(System.Object,System.EventArgs)">
+            <summary>
+            Удаление физического сервера.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.DeleteVir_Click(System.Object,System.EventArgs)">
+            <summary>
+            Удаление виртуального сервера.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.физическийToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            Подписываемся на событие удаления физического сервера.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.виртуальныйToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            Подписываемся на событие удаления виртуального сервера.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.button1_Click(System.Object,System.EventArgs)">
+            <summary>
+            Обновление данных через текстбоксы.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.toolAddServer_ButtonClick(System.Object,System.EventArgs)">
+            <summary>
+            При клике отображаем дочерние элементы.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.deleteServer_ButtonClick(System.Object,System.EventArgs)">
+            <summary>
+            Аналогично добавлению - выводим дочерние пункты.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.dataGridView1_Click(System.Object,System.EventArgs)">
+            <summary>
+            Подписка на событие выделения строки, для отображения данных в текстбоксах.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.dataGridView3_DataError(System.Object,System.Windows.Forms.DataGridViewDataErrorEventArgs)">
+            <summary>
+            Перехватываем любые ошибки в DataGridView виртуальных серверов.
+            Необходимо реализовать корректную обработку или логирование.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.dataGridView1_DataError(System.Object,System.Windows.Forms.DataGridViewDataErrorEventArgs)">
+            <summary>
+            Перехватываем любые ошибки в DataGridView физических серверов.
+            Необходимо реализовать корректную обработку или логирование.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.dataGridView1_MouseMove_1(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Устанавливаем фокус при наведении мыши, чтобы плавно работал скороллинг.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.dataGridView3_MouseMove_1(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Устанавливаем фокус при наведении мыши, чтобы плавно работал скороллинг.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.toolStripMenuItem1_Click(System.Object,System.EventArgs)">
+            <summary>
+            Подключение по RDP к физическим серверам, с проверкой адреса и домена, перед вызовом клиента MSTSC.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.toolStripMenuItem2_Click(System.Object,System.EventArgs)">
+            <summary>
+            Подключение по RDP к виртуальным серверам, с проверкой адреса и домена, перед вызовом клиента MSTSC.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.toolStripButton1_Click(System.Object,System.EventArgs)">
+            <summary>
+            Вызывает функцию ExportToHTML для экспорта в htm.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.bindingNavigatorMoveNextItem1_Click(System.Object,System.EventArgs)">
+            <summary>
+            Вперед по навигатору физических серверов. При навигации выделеяем всю строку.
+            Нужно для корректного получения значения индекстов строки.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.bindingNavigatorMovePreviousItem1_Click(System.Object,System.EventArgs)">
+            <summary>
+            Назад по навигатору физических серверов. При навигации выделеяем всю строку.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.bindingNavigatorMoveLastItem1_Click(System.Object,System.EventArgs)">
+            <summary>
+            Переход к самой последней строке в таблице.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.bindingNavigatorMoveFirstItem1_Click(System.Object,System.EventArgs)">
+            <summary>
+            Переход к самой первой строке в таблице.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.dataGridView3_CellClick(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
+            <summary>
+            При клике по любой ячейки - выделяем всю строку. Нужно для корректного получения значения индексов строки.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.временноПриостановленToolStripMenuItem1_Click(System.Object,System.EventArgs)">
+            <summary>
+            Помечает выделенный сервер как неактивный в таблице виртуальных серверов.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:EcmServerCard.Main.временноПриостановленToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            Помечает выделенный сервер как неактивный в таблице физических серверов.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:EcmServerCard.Main.снятьМеткуНеактивностиToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            Снимает метку неактивности.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:EcmServerCard.Main.снятьМеткуНеактивностиToolStripMenuItem1_Click(System.Object,System.EventArgs)">
+            <summary>
+            Снимает метку неактивности.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:EcmServerCard.Main.components">
+            <summary>
+            Требуется переменная конструктора.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Main.Dispose(System.Boolean)">
+            <summary>
+            Освободить все используемые ресурсы.
+            </summary>
+            <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
+        </member>
+        <member name="M:EcmServerCard.Main.InitializeComponent">
+            <summary>
+            Обязательный метод для поддержки конструктора - не изменяйте
+            содержимое данного метода при помощи редактора кода.
+            </summary>
+        </member>
+        <member name="F:EcmServerCard.NewServer.result">
+            <summary>
+            Флаг для передачи или непередачи значений в главную форму.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.NewServer.Cancel_Click(System.Object,System.EventArgs)">
+            <summary>
+            При простом закрытии формы передаем флаг с указанияем запрета передачи значений.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:EcmServerCard.NewServer.Add_Click(System.Object,System.EventArgs)">
+            <summary>
+            Передаем значения в главную форму.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:EcmServerCard.NewServer.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.NewServer.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:EcmServerCard.NewServer.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.Program.Main">
+            <summary>
+            Главная точка входа для приложения.
+            </summary>
+        </member>
+        <member name="F:EcmServerCard.VirServer.CurrentServerID">
+            <summary>
+            [dbo].[PhyServers].[ID] полученный при выборе сервера в ComboBox.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.VirServer.GetData(System.Windows.Forms.BindingSource)">
+            <summary>
+            Выводит список серверов в выпадающем списке
+            </summary>
+            <param name="main"></param>
+        </member>
+        <member name="M:EcmServerCard.VirServer.#ctor">
+            <summary>
+            Инициализация формы.
+            </summary>
+        </member>
+        <member name="M:EcmServerCard.VirServer.VirServer_Shown(System.Object,System.EventArgs)">
+            <summary>
+            Загрузка формы. Загружаем данные с сервера.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:EcmServerCard.VirServer.comboBox1_SelectedIndexChanged(System.Object,System.EventArgs)">
+            <summary>
+            При выборе сервера в comboBox получаем его ID из базы
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:EcmServerCard.VirServer.Add_Click(System.Object,System.EventArgs)">
+            <summary>
+            Переопределенный метод добавления сервера.
+            </summary>
+        </member>
+        <member name="F:EcmServerCard.VirServer.components">
+             <summary>
+            Требуется переменная конструктора.
+             </summary>
+        </member>
+        <member name="M:EcmServerCard.VirServer.Dispose(System.Boolean)">
+            <summary>
+            Освободить все используемые ресурсы.
+            </summary>
+            <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
+        </member>
+        <member name="M:EcmServerCard.VirServer.InitializeComponent">
+            <summary>
+            Обязательный метод для поддержки конструктора - не изменяйте
+            содержимое данного метода при помощи редактора кода.
+            </summary>
+        </member>
+        <member name="T:EcmServerCard.Properties.Resources">
+            <summary>
+              Класс ресурса со строгой типизацией для поиска локализованных строк и т.д.
+            </summary>
+        </member>
+        <member name="P:EcmServerCard.Properties.Resources.ResourceManager">
+            <summary>
+              Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
+            </summary>
+        </member>
+        <member name="P:EcmServerCard.Properties.Resources.Culture">
+            <summary>
+              Перезаписывает свойство CurrentUICulture текущего потока для всех
+              обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
+            </summary>
+        </member>
+        <member name="P:EcmServerCard.Properties.Resources.connect">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:EcmServerCard.Properties.Resources.disconnect">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:EcmServerCard.Properties.Resources.logo">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
+            </summary>
+        </member>
+        <member name="P:EcmServerCard.Properties.Resources.none">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:EcmServerCard.Properties.Resources.refresh">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:EcmServerCard.Properties.Resources.remote">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+    </members>
+</doc>
