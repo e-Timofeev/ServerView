@@ -2,13 +2,13 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="EcmServerCard.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="EcmServerListConnectionString" Type="(Connection string)" Scope="Application">
+    <Setting Name="ServerListConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=tcp:sp13sql;Initial Catalog=EcmServerList;Persist Security Info=True;User ID=ecm;Password=123qweASD&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=192.168.2.51;Initial Catalog=EcmServerList;Persist Security Info=True;User ID=ecm;Password=123qweASD;Connection Timeout=5&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=tcp:sp13sql;Initial Catalog=EcmServerList;Persist Security Info=True;User ID=ecm;Password=123qweASD</Value>
+      <Value Profile="(Default)">Data Source=192.168.2.51;Initial Catalog=EcmServerList;Persist Security Info=True;User ID=ecm;Password=123qweASD;Connection Timeout=5</Value>
     </Setting>
   </Settings>
 </SettingsFile>

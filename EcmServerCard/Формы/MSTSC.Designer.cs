@@ -1,4 +1,4 @@
-﻿namespace EcmServerCard
+﻿namespace ServersView
 {
     partial class MSTSC
     {
@@ -41,7 +41,7 @@
             this.rdp.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("rdp.OcxState")));
             this.rdp.Size = new System.Drawing.Size(932, 753);
             this.rdp.TabIndex = 1;
-            this.rdp.OnDisconnected += new AxMSTSCLib.IMsTscAxEvents_OnDisconnectedEventHandler(this.rdp_OnDisconnected);
+            this.rdp.OnDisconnected += new AxMSTSCLib.IMsTscAxEvents_OnDisconnectedEventHandler(this.Rdp_OnDisconnected);
             // 
             // MSTSC
             // 

@@ -1,4 +1,4 @@
-﻿namespace EcmServerCard.Формы
+﻿namespace ServersView.Формы
 {
     partial class Archive
     {

@@ -1,14 +1,13 @@
 ﻿using System.Drawing;
-using System.Threading.Tasks;
 
-namespace EcmServerCard
+namespace ServersView
 {
     static class ConvertImageToByte
     {
         private static ImageConverter converter = new ImageConverter();
-        private static Image connect = Properties.Resources.connect;
-        private static Image disconnect = Properties.Resources.disconnect;
-        private static Image none = Properties.Resources.none;
+        private static readonly Image connect = Properties.Resources.connect;
+        private static readonly Image disconnect = Properties.Resources.disconnect;
+        private static readonly Image none = Properties.Resources.none;
 
 
         public static byte[] _connection()

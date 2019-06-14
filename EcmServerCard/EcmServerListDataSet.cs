@@ -1,4 +1,4 @@
-﻿namespace EcmServerCard
+﻿namespace ServersView
 {
 
 
@@ -6,7 +6,7 @@
     {
     }
 }
-namespace EcmServerCard {
+namespace ServersView {
     
     
     public partial class EcmServerListDataSet {

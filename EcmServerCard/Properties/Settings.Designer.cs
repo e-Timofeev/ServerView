@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EcmServerCard.Properties {
+namespace ServersView.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -26,11 +26,11 @@ namespace EcmServerCard.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=tcp:sp13sql;Initial Catalog=EcmServerList;Persist Security Info=True;" +
-            "User ID=ecm;Password=123qweASD")]
-        public string EcmServerListConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.2.51;Initial Catalog=EcmServerList;Persist Security Info=True" +
+            ";User ID=ecm;Password=123qweASD;Connection Timeout=5")]
+        public string ServerListConnectionString {
             get {
-                return ((string)(this["EcmServerListConnectionString"]));
+                return ((string)(this["ServerListConnectionString"]));
             }
         }
     }

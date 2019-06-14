@@ -3,16 +3,16 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
-namespace EcmServerCard
+namespace ServersView
 {
-    public partial class VirServer : EcmServerCard.NewServer
+    public partial class VirServer : NewServer
     {
         #region Поля
         /// <summary>
         /// [dbo].[PhyServers].[ID] полученный при выборе сервера в ComboBox.
         /// </summary>
         public byte CurrentServerID = 0;
-        private string connection = DB.Connection();
+        private string connection = DB.Connection;
         #endregion
 
         #region Методы
@@ -22,8 +22,10 @@ namespace EcmServerCard
         /// <param name="main"></param>
         public void GetData(BindingSource main)
         {
-            DataSet DataSet = new System.Data.DataSet();
-            DataSet.Locale = System.Globalization.CultureInfo.InvariantCulture;
+            DataSet DataSet = new DataSet
+            {
+                Locale = System.Globalization.CultureInfo.InvariantCulture
+            };
             using (SqlConnection cn = new SqlConnection(connection))
             {
                 string command = "Select ID, ServerName from PhyServers";
@@ -64,10 +66,10 @@ namespace EcmServerCard
         /// <param name="e"></param>
         private void VirServer_Shown(object sender, EventArgs e)
         {
-            this.Refresh();
+            Refresh();
             GetData(bindingSource1);
             comboBox1.ValueMember = "ServerName";
-            this.Load -= comboBox1_SelectedIndexChanged;            // отписываемся от события
+            Load -= ComboBox1_SelectedIndexChanged;            // отписываемся от события
         }
        
         /// <summary>
@@ -75,7 +77,7 @@ namespace EcmServerCard
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             DataSet DataSet = new System.Data.DataSet();
             int index = comboBox1.SelectedIndex;
@@ -123,7 +125,5 @@ namespace EcmServerCard
                 return;
             }
         }
-
-
     }
 }

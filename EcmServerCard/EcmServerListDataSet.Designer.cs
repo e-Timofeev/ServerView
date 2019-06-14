@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace EcmServerCard {
+namespace ServersView {
     
     
     /// <summary>
@@ -796,7 +796,7 @@ namespace EcmServerCard {
         }
     }
 }
-namespace EcmServerCard.EcmServerListDataSetTableAdapters {
+namespace ServersView.EcmServerListDataSetTableAdapters {
     
     
     /// <summary>
@@ -944,7 +944,7 @@ namespace EcmServerCard.EcmServerListDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::EcmServerCard.Properties.Settings.Default.EcmServerListConnectionString;
+            this._connection.ConnectionString = global::ServersView.Properties.Settings.Default.ServerListConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

@@ -1,4 +1,4 @@
-﻿namespace EcmServerCard
+﻿namespace ServersView
 {
     partial class NewServer
     {

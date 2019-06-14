@@ -1,35 +1,26 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Configuration;
 
-namespace EcmServerCard
+namespace ServersView
 {
-
-    
-   // private static event DataCompleted GetDataCompleted;
-
     /// <summary>
     /// Класс для взаимодействия с базой данных.
     /// </summary>
-    static class DB
+    internal static class DB
     {
+        /// <summary>
+        /// Делегат для обработки события успешного завершения загрузки данных.
+        /// Наиболее актуально при частом обновлении данных.
+        /// </summary>
         public delegate void DataCompleted();
+        /// <summary>
+        /// Событие об успехе загрузки данных.
+        /// </summary>
         public static event DataCompleted GetDataCompleted;
 
         #region Поля
-        /// <summary>
-        /// Строка для установки соединения с базой. Плохо хранить в таком открытом виде, 
-        /// но для локальной задачи внутри компании - задачу решает. Все пароли известны. 
-        /// В App.config хранить еще хуже, даже код не надо через dotpeak смотреть.
-        /// SecureString, как возможнное решение, если потребуется.
-        /// Windows Authentication не подходит.
-        /// </summary>
-        //private static string ConnectionLocal =
-        //@"Data Source=tcp:sp13sql;Initial Catalog=EcmServerList;Persist Security Info=True;User ID=ecm;Password=123qweASD";
-
-        private static string connection =
-        @"Data Source=192.168.2.51;Initial Catalog=EcmServerList;Persist Security Info=True;Connection Timeout=5;User ID=ecm;Password=123qweASD;";
 
         /// <summary>
         /// SQL команда для выборки всех физических серверов.
@@ -44,15 +35,15 @@ namespace EcmServerCard
         @"Select ParrentServerID as 'ID', ServerName as 'Имя сервера', IP as 'Адрес', Domain as 'Домен', Description as 'Описание', Status as 'Состояние', ID as 'PK', Archive from VirServers";
 
         private static CMD cmd = new CMD();
-        
 
+        public static string Connection => ConfigurationManager.ConnectionStrings["ServersView.Properties.Settings.ServerListConnectionString"]?.ConnectionString;
         #endregion
 
         #region Методы
-        public static string Connection()
-        {
-            return connection;
-        }
+        //public static string Connection()
+        //{
+        //    return Connection1;
+        //}
 
         private async static System.Threading.Tasks.Task<bool> GetServerPing()
         {
@@ -64,24 +55,30 @@ namespace EcmServerCard
         /// Получение данных из двух таблиц в базе.
         /// Взято с MSDN.
         /// </summary>
-        /// <param name="main">Главная</param>
-        /// <param name="detail">Дочерняя</param>
+        /// <param name="main">Главная.</param>
+        /// <param name="detail">Дочерняя.</param>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2100:Проверка запросов SQL на уязвимости безопасности")]
         public static async void GetData(BindingSource main, BindingSource detail)
         {
-            DataSet db = new DataSet();
-            db.Locale = System.Globalization.CultureInfo.InvariantCulture;
+            DataSet db = new DataSet
+            {
+                Locale = System.Globalization.CultureInfo.InvariantCulture
+            };
             if (await GetServerPing())
             {
-                using (SqlConnection cn = new SqlConnection(Connection()))
+                using (SqlConnection cn = new SqlConnection(Connection))
                 {
                     try
                     {
                         cn.Open();
-                        SqlCommand sCommandMain = new SqlCommand(CommandMain, cn);
-                        sCommandMain.CommandTimeout = 5;
-                        SqlCommand sCommandDetail = new SqlCommand(CommandDetail, cn);
-                        sCommandDetail.CommandTimeout = 5;
+                        SqlCommand sCommandMain = new SqlCommand(CommandMain, cn)
+                        {
+                            CommandTimeout = 5
+                        };
+                        SqlCommand sCommandDetail = new SqlCommand(CommandDetail, cn)
+                        {
+                            CommandTimeout = 5
+                        };
 
                         SqlDataAdapter AdapterMain = new SqlDataAdapter(sCommandMain);
                         SqlDataAdapter AdapterDetail = new SqlDataAdapter(sCommandDetail);
@@ -96,8 +93,8 @@ namespace EcmServerCard
 
                         db.Relations.Add(relation);
 
-                        cmd.dgStatus(db.Tables["PhyServers"], 1);   // 1 - таблица физических серверов
-                        cmd.dgStatus(db.Tables["VirServers"], 2);   // 2 - таблица виртуальных сер
+                        cmd.DgStatus(db.Tables["PhyServers"], 1);   // 1 - таблица физических серверов
+                        cmd.DgStatus(db.Tables["VirServers"], 2);   // 2 - таблица виртуальных сер
 
                         main.DataSource = db;
                         main.DataMember = "PhyServers";
@@ -130,7 +127,7 @@ namespace EcmServerCard
         /// <param name="desc">описание</param>
         public static void InsertData(string serv, string ip, string dc, string desc)
         {
-            using (SqlConnection connect = new SqlConnection(Connection()))
+            using (SqlConnection connect = new SqlConnection(Connection))
             {
                 using (SqlCommand command = new SqlCommand())
                 {
@@ -172,7 +169,7 @@ namespace EcmServerCard
         public static void InsertData(string serv, string ip, string dc, string desc, byte ID)
         {
 
-            using (SqlConnection connect = new SqlConnection(Connection()))
+            using (SqlConnection connect = new SqlConnection(Connection))
             {
                 using (SqlCommand command = new SqlCommand())
                 {
@@ -214,7 +211,7 @@ namespace EcmServerCard
         public static void DeleteDataPhy(byte ServerID)
         {
             string command = string.Format("Delete from PhyServers where ID = '{0}'", ServerID);
-            using (SqlConnection connect = new SqlConnection(Connection()))
+            using (SqlConnection connect = new SqlConnection(Connection))
             {
                 using (SqlCommand cmd = new SqlCommand(command, connect))
                 {
@@ -241,7 +238,7 @@ namespace EcmServerCard
         public static void DeleteDataVir(byte ServerID)
         {
             string command = string.Format("Delete from VirServers where ID = '{0}'", ServerID);
-            using (SqlConnection connect = new SqlConnection(Connection()))
+            using (SqlConnection connect = new SqlConnection(Connection))
             {
                 using (SqlCommand cmd = new SqlCommand(command, connect))
                 {
@@ -273,7 +270,7 @@ namespace EcmServerCard
             string domain = string.Empty;
             string description = string.Empty;
 
-            using (SqlConnection connect = new SqlConnection(Connection()))
+            using (SqlConnection connect = new SqlConnection(Connection))
             {
                 if (dg.RowCount != 0)
                 {
@@ -327,7 +324,7 @@ namespace EcmServerCard
             string domain = string.Empty;
             string description = string.Empty;
 
-            using (SqlConnection connect = new SqlConnection(Connection()))
+            using (SqlConnection connect = new SqlConnection(Connection))
             {
                 if (dg.RowCount != 0)
                 {
@@ -376,7 +373,7 @@ namespace EcmServerCard
         public static void UpdateStatusPhy(byte ServerID)
         {
             string command = string.Format("UPDATE PhyServers SET [Archive] = 1 where ID = '{0}'", ServerID);
-            using (SqlConnection connect = new SqlConnection(Connection()))
+            using (SqlConnection connect = new SqlConnection(Connection))
             {
                 using (SqlCommand cmd = new SqlCommand(command, connect))
                 {
@@ -402,7 +399,7 @@ namespace EcmServerCard
         public static void UpdateStatusVir(byte ServerID)
         {
             string command = string.Format("UPDATE VirServers SET [Archive] = 1 where ID = '{0}'", ServerID);
-            using (SqlConnection connect = new SqlConnection(Connection()))
+            using (SqlConnection connect = new SqlConnection(Connection))
             {
                 using (SqlCommand cmd = new SqlCommand(command, connect))
                 {
@@ -428,7 +425,7 @@ namespace EcmServerCard
         public static void UpdateStatusPhy2(byte ServerID)
         {
             string command = string.Format("UPDATE PhyServers SET [Archive] = 0 where ID = '{0}'", ServerID);
-            using (SqlConnection connect = new SqlConnection(Connection()))
+            using (SqlConnection connect = new SqlConnection(Connection))
             {
                 using (SqlCommand cmd = new SqlCommand(command, connect))
                 {
@@ -454,7 +451,7 @@ namespace EcmServerCard
         public static void UpdateStatusVir2(byte ServerID)
         {
             string command = string.Format("UPDATE VirServers SET [Archive] = 0 where ID = '{0}'", ServerID);
-            using (SqlConnection connect = new SqlConnection(Connection()))
+            using (SqlConnection connect = new SqlConnection(Connection))
             {
                 using (SqlCommand cmd = new SqlCommand(command, connect))
                 {

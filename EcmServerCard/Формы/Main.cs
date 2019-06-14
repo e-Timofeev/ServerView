@@ -1,4 +1,4 @@
-﻿using EcmServerCard.Формы;
+﻿using ServersView.Формы;
 
 using System;
 using System.Data;
@@ -6,10 +6,9 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EcmServerCard
+namespace ServersView
 {
     public partial class Main : DevExpress.XtraEditors.XtraForm
     {
@@ -33,23 +32,7 @@ namespace EcmServerCard
         /// ID выделенного сервера (PK в VirServers).
         /// </summary>
         private byte VirServerID = 0;
-
-        /// <summary>
-        /// Поле для замера времени выполнения операций в миллисекундах.
-        /// </summary>
-        //private Stopwatch t = new Stopwatch();
-
-        /// <summary>
-        /// Создает экземпляр класса CMD для определения состояния серверов. 
-        /// </summary>
-        //private CMD cm = new CMD();
-
-        /// <summary>
-        ///  Создает экземпляр класса DB для работы с базой данных на сервере.
-        /// </summary>
-        //private DB list = new DB();
-
-        private string connection = DB.Connection();
+        private string connection = DB.Connection;
         private string comPhy = DB.CommandMain;
         private string comVir = DB.CommandDetail;
 
@@ -261,9 +244,11 @@ namespace EcmServerCard
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2100:Проверка запросов SQL на уязвимости безопасности")]
         public void ExportToHTML()//BindingSource main, BindingSource detail)
         {
-            DataSet DataSet = new DataSet();
-            DataSet.Locale = System.Globalization.CultureInfo.InvariantCulture;
-            using (SqlConnection cn = new SqlConnection(DB.Connection()))
+            DataSet DataSet = new DataSet
+            {
+                Locale = System.Globalization.CultureInfo.InvariantCulture
+            };
+            using (SqlConnection cn = new SqlConnection(DB.Connection))
             {
                 try
                 {
@@ -329,6 +314,7 @@ namespace EcmServerCard
                     DB.GetDataCompleted += SetGridProperties;
                     DB.GetData(bindingSource1, bindingSource2);
                 }));
+                //SetGridProperties();
             }
             catch (Exception)
             {
@@ -340,7 +326,7 @@ namespace EcmServerCard
         /// <summary>
         /// Обработчик сохранения всех изменений в базу.
         /// </summary>
-        private void toolUpdate_Click(object sender, EventArgs e)
+        private void ToolUpdate_Click(object sender, EventArgs e)
         {
             UpdateAllDataGridView();    // уже имеет обработку исключений
         }
@@ -348,7 +334,7 @@ namespace EcmServerCard
         /// <summary>
         /// Обход грида физ. серверов по выделенным строкам.
         /// </summary>
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        private void DataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             try
             {
@@ -383,7 +369,7 @@ namespace EcmServerCard
         /// <summary>
         /// Обход грида вир. серверов по выделенным строкам.
         /// </summary>
-        private void dataGridView3_SelectionChanged(object sender, EventArgs e)
+        private void DataGridView3_SelectionChanged(object sender, EventArgs e)
         {
             try
             {
@@ -420,7 +406,7 @@ namespace EcmServerCard
         /// <summary>
         /// Добавление нового физ. сервера в базу данных.
         /// </summary>          
-        private void физическийСерверToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ФизическийСерверToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NewServer f = new NewServer();
             f.ShowDialog();
@@ -436,7 +422,7 @@ namespace EcmServerCard
         /// <summary>
         /// Добавление нового вир. сервера в базу данных.
         /// </summary>
-        private void виртуальныйСерверToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ВиртуальныйСерверToolStripMenuItem_Click(object sender, EventArgs e)
         {
             VirServer f = new VirServer();
             f.ShowDialog();
@@ -452,7 +438,7 @@ namespace EcmServerCard
         /// <summary>
         /// Удаление физического сервера.
         /// </summary>
-        private void deletePhy_Click(object sender, EventArgs e)
+        private void DeletePhy_Click(object sender, EventArgs e)
         {
             // DeleteDataPhy и UpdateAllDataGridView уже содержат обработку исключений.
             DB.DeleteDataPhy(PhyServerID);
@@ -472,15 +458,15 @@ namespace EcmServerCard
         /// <summary>
         /// Подписываемся на событие удаления физического сервера.
         /// </summary>
-        private void физическийToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ФизическийToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            физическийToolStripMenuItem.Click += deletePhy_Click;
+            физическийToolStripMenuItem.Click += DeletePhy_Click;
         }
 
         /// <summary>
         /// Подписываемся на событие удаления виртуального сервера.
         /// </summary>
-        private void виртуальныйToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ВиртуальныйToolStripMenuItem_Click(object sender, EventArgs e)
         {
             виртуальныйToolStripMenuItem.Click += DeleteVir_Click;
         }
@@ -488,7 +474,7 @@ namespace EcmServerCard
         /// <summary>
         /// Обновление данных через текстбоксы.
         /// </summary>
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             BugSelectRowInDatagridview(dataGridView3);
             try
@@ -520,7 +506,7 @@ namespace EcmServerCard
         /// <summary>
         /// При клике отображаем дочерние элементы.
         /// </summary>
-        private void toolAddServer_ButtonClick(object sender, EventArgs e)
+        private void ToolAddServer_ButtonClick(object sender, EventArgs e)
         {
             toolAddServer.ShowDropDown();
         }
@@ -528,7 +514,7 @@ namespace EcmServerCard
         /// <summary>
         /// Аналогично добавлению - выводим дочерние пункты.
         /// </summary>
-        private void deleteServer_ButtonClick(object sender, EventArgs e)
+        private void DeleteServer_ButtonClick(object sender, EventArgs e)
         {
             deleteServer.ShowDropDown();
         }
@@ -536,7 +522,7 @@ namespace EcmServerCard
         /// <summary>
         /// Подписка на событие выделения строки, для отображения данных в текстбоксах.
         /// </summary>
-        private void dataGridView1_Click(object sender, EventArgs e)
+        private void DataGridView1_Click(object sender, EventArgs e)
         {
             FullSelectRow(dataGridView1);
         }
@@ -545,7 +531,7 @@ namespace EcmServerCard
         /// Перехватываем любые ошибки в DataGridView виртуальных серверов.
         /// Необходимо реализовать корректную обработку или логирование.
         /// </summary>
-        private void dataGridView3_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        private void DataGridView3_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             if (e.Exception != null)
             {
@@ -558,7 +544,7 @@ namespace EcmServerCard
         /// Перехватываем любые ошибки в DataGridView физических серверов.
         /// Необходимо реализовать корректную обработку или логирование.
         /// </summary>
-        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        private void DataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             if (e.Exception != null)
             {
@@ -570,7 +556,7 @@ namespace EcmServerCard
         /// <summary>
         /// Устанавливаем фокус при наведении мыши, чтобы плавно работал скороллинг.
         /// </summary>
-        private void dataGridView1_MouseMove_1(object sender, MouseEventArgs e)
+        private void DataGridView1_MouseMove_1(object sender, MouseEventArgs e)
         {
             dataGridView1.Focus();
         }
@@ -578,7 +564,7 @@ namespace EcmServerCard
         /// <summary>
         /// Устанавливаем фокус при наведении мыши, чтобы плавно работал скороллинг.
         /// </summary>
-        private void dataGridView3_MouseMove_1(object sender, MouseEventArgs e)
+        private void DataGridView3_MouseMove_1(object sender, MouseEventArgs e)
         {
             dataGridView3.Focus();
         }
@@ -586,7 +572,7 @@ namespace EcmServerCard
         /// <summary>
         /// Подключение по RDP к физическим серверам, с проверкой адреса и домена, перед вызовом клиента MSTSC.
         /// </summary>
-        private async void toolStripMenuItem1_Click(object sender, EventArgs e)
+        private async void ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             byte rowID = PhyRowID;
             string adress = dataGridView1[2, rowID].Value.ToString();
@@ -630,7 +616,7 @@ namespace EcmServerCard
         /// <summary>
         /// Подключение по RDP к виртуальным серверам, с проверкой адреса и домена, перед вызовом клиента MSTSC.
         /// </summary>
-        private async void toolStripMenuItem2_Click(object sender, EventArgs e)
+        private async void ToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             byte rowID = VirRowID;
             string adress = dataGridView3[2, rowID].Value.ToString();
@@ -687,7 +673,7 @@ namespace EcmServerCard
         /// <summary>
         /// Вызывает функцию ExportToHTML для экспорта в htm.
         /// </summary>
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void ToolStripButton1_Click(object sender, EventArgs e)
         {
             ExportToHTMLAsync();
         }
@@ -704,7 +690,7 @@ namespace EcmServerCard
         /// Вперед по навигатору физических серверов. При навигации выделеяем всю строку.
         /// Нужно для корректного получения значения индекстов строки.
         /// </summary>
-        private void bindingNavigatorMoveNextItem1_Click(object sender, EventArgs e)
+        private void BindingNavigatorMoveNextItem1_Click(object sender, EventArgs e)
         {
             FullSelectRow(dataGridView3);
         }
@@ -712,7 +698,7 @@ namespace EcmServerCard
         /// <summary>
         /// Назад по навигатору физических серверов. При навигации выделеяем всю строку.
         /// </summary>
-        private void bindingNavigatorMovePreviousItem1_Click(object sender, EventArgs e)
+        private void BindingNavigatorMovePreviousItem1_Click(object sender, EventArgs e)
         {
             FullSelectRow(dataGridView3);
         }
@@ -720,7 +706,7 @@ namespace EcmServerCard
         /// <summary>
         /// Переход к самой последней строке в таблице.
         /// </summary>
-        private void bindingNavigatorMoveLastItem1_Click(object sender, EventArgs e)
+        private void BindingNavigatorMoveLastItem1_Click(object sender, EventArgs e)
         {
             FullSelectRow(dataGridView3);
         }
@@ -728,7 +714,7 @@ namespace EcmServerCard
         /// <summary>
         /// Переход к самой первой строке в таблице.
         /// </summary>
-        private void bindingNavigatorMoveFirstItem1_Click(object sender, EventArgs e)
+        private void BindingNavigatorMoveFirstItem1_Click(object sender, EventArgs e)
         {
             FullSelectRow(dataGridView3);
         }
@@ -736,7 +722,7 @@ namespace EcmServerCard
         /// <summary>
         /// При клике по любой ячейки - выделяем всю строку. Нужно для корректного получения значения индексов строки.
         /// </summary>
-        private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             FullSelectRow(dataGridView3);
         }
@@ -744,28 +730,28 @@ namespace EcmServerCard
 
         #region Навигация по БиндингНавигатору грида физических серверов.
 
-        private void bindingNavigatorMoveFirstItem_Click(object sender, EventArgs e)
+        private void BindingNavigatorMoveFirstItem_Click(object sender, EventArgs e)
         {
             FullSelectRow(dataGridView1);
         }
 
-        private void bindingNavigatorMovePreviousItem_Click(object sender, EventArgs e)
+        private void BindingNavigatorMovePreviousItem_Click(object sender, EventArgs e)
         {
             FullSelectRow(dataGridView1);
         }
 
-        private void bindingNavigatorMoveNextItem_Click(object sender, EventArgs e)
+        private void BindingNavigatorMoveNextItem_Click(object sender, EventArgs e)
         {
             FullSelectRow(dataGridView1);
         }
 
-        private void bindingNavigatorMoveLastItem_Click(object sender, EventArgs e)
+        private void BindingNavigatorMoveLastItem_Click(object sender, EventArgs e)
         {
             FullSelectRow(dataGridView1);
         }
         #endregion
 
-        private void toolStripButton2_Click(object sender, EventArgs e)
+        private void ToolStripButton2_Click(object sender, EventArgs e)
         {
             Archive _arc = new Archive();
             _arc.ShowDialog();
@@ -778,7 +764,7 @@ namespace EcmServerCard
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void временноПриостановленToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void ВременноПриостановленToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             DB.UpdateStatusVir(VirServerID);
             UpdateAllDataGridView();
@@ -789,7 +775,7 @@ namespace EcmServerCard
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void временноПриостановленToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ВременноПриостановленToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DB.UpdateStatusPhy(PhyServerID);
             UpdateAllDataGridView();
@@ -800,7 +786,7 @@ namespace EcmServerCard
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void снятьМеткуНеактивностиToolStripMenuItem_Click(object sender, EventArgs e)
+        private void СнятьМеткуНеактивностиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DB.UpdateStatusPhy2(PhyServerID);
             UpdateAllDataGridView();
@@ -811,7 +797,7 @@ namespace EcmServerCard
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void снятьМеткуНеактивностиToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void СнятьМеткуНеактивностиToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             DB.UpdateStatusVir2(VirServerID);
             UpdateAllDataGridView();

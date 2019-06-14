@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace EcmServerCard
+namespace ServersView
 {
     public partial class NewServer : Form
     {

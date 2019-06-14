@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 
 
-namespace EcmServerCard.Формы
+namespace ServersView.Формы
 {
     /// <summary>
     /// Форма для отображения архивных машин.
@@ -31,9 +31,9 @@ namespace EcmServerCard.Формы
         public void GetData()
         {
             DataSet.Locale = System.Globalization.CultureInfo.InvariantCulture;
-            using (SqlConnection cn = new SqlConnection(DB.Connection()))
+            using (SqlConnection cn = new SqlConnection(DB.Connection))
             {
-                cn.ConnectionString = DB.Connection();
+                cn.ConnectionString = DB.Connection;
                 try
                 {
                     cn.Open();

@@ -1,5 +1,5 @@
 ﻿using System.Threading;
-namespace EcmServerCard
+namespace ServersView
 {
     partial class Main
     {
@@ -30,15 +30,15 @@ namespace EcmServerCard
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.contextMenuGrid1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -125,51 +125,51 @@ namespace EcmServerCard
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ContextMenuStrip = this.contextMenuGrid1;
             this.dataGridView1.DataSource = this.bindingSource1;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.GridColor = System.Drawing.Color.DarkGray;
             this.dataGridView1.Location = new System.Drawing.Point(3, 28);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(783, 208);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.VirtualMode = true;
-            this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
-            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
-            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
-            this.dataGridView1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseMove_1);
+            this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataGridView1_DataError);
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.DataGridView1_SelectionChanged);
+            this.dataGridView1.Click += new System.EventHandler(this.DataGridView1_Click);
+            this.dataGridView1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DataGridView1_MouseMove_1);
             // 
             // contextMenuGrid1
             // 
@@ -183,27 +183,27 @@ namespace EcmServerCard
             // 
             // toolStripMenuItem1
             // 
-            this.toolStripMenuItem1.Image = global::EcmServerCard.Properties.Resources.remote;
+            this.toolStripMenuItem1.Image = global::ServersView.Properties.Resources.remote;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(210, 22);
             this.toolStripMenuItem1.Text = "подключиться по rdp";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.ToolStripMenuItem1_Click);
             // 
             // временноПриостановленToolStripMenuItem
             // 
-            this.временноПриостановленToolStripMenuItem.Image = global::EcmServerCard.Properties.Resources.disconnect;
+            this.временноПриостановленToolStripMenuItem.Image = global::ServersView.Properties.Resources.disconnect;
             this.временноПриостановленToolStripMenuItem.Name = "временноПриостановленToolStripMenuItem";
             this.временноПриостановленToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.временноПриостановленToolStripMenuItem.Text = "пометить неактивным";
-            this.временноПриостановленToolStripMenuItem.Click += new System.EventHandler(this.временноПриостановленToolStripMenuItem_Click);
+            this.временноПриостановленToolStripMenuItem.Click += new System.EventHandler(this.ВременноПриостановленToolStripMenuItem_Click);
             // 
             // снятьМеткуНеактивностиToolStripMenuItem
             // 
-            this.снятьМеткуНеактивностиToolStripMenuItem.Image = global::EcmServerCard.Properties.Resources.connect;
+            this.снятьМеткуНеактивностиToolStripMenuItem.Image = global::ServersView.Properties.Resources.connect;
             this.снятьМеткуНеактивностиToolStripMenuItem.Name = "снятьМеткуНеактивностиToolStripMenuItem";
             this.снятьМеткуНеактивностиToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.снятьМеткуНеактивностиToolStripMenuItem.Text = "снять метку неактивности";
-            this.снятьМеткуНеактивностиToolStripMenuItem.Click += new System.EventHandler(this.снятьМеткуНеактивностиToolStripMenuItem_Click);
+            this.снятьМеткуНеактивностиToolStripMenuItem.Click += new System.EventHandler(this.СнятьМеткуНеактивностиToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
@@ -233,21 +233,21 @@ namespace EcmServerCard
             this.toolAddServer.Name = "toolAddServer";
             this.toolAddServer.Size = new System.Drawing.Size(125, 22);
             this.toolAddServer.Text = "Добавить сервер";
-            this.toolAddServer.ButtonClick += new System.EventHandler(this.toolAddServer_ButtonClick);
+            this.toolAddServer.ButtonClick += new System.EventHandler(this.ToolAddServer_ButtonClick);
             // 
             // физическийСерверToolStripMenuItem
             // 
             this.физическийСерверToolStripMenuItem.Name = "физическийСерверToolStripMenuItem";
             this.физическийСерверToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.физическийСерверToolStripMenuItem.Text = "Физический сервер";
-            this.физическийСерверToolStripMenuItem.Click += new System.EventHandler(this.физическийСерверToolStripMenuItem_Click);
+            this.физическийСерверToolStripMenuItem.Click += new System.EventHandler(this.ФизическийСерверToolStripMenuItem_Click);
             // 
             // виртуальныйСерверToolStripMenuItem
             // 
             this.виртуальныйСерверToolStripMenuItem.Name = "виртуальныйСерверToolStripMenuItem";
             this.виртуальныйСерверToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.виртуальныйСерверToolStripMenuItem.Text = "Виртуальный сервер";
-            this.виртуальныйСерверToolStripMenuItem.Click += new System.EventHandler(this.виртуальныйСерверToolStripMenuItem_Click);
+            this.виртуальныйСерверToolStripMenuItem.Click += new System.EventHandler(this.ВиртуальныйСерверToolStripMenuItem_Click);
             // 
             // deleteServer
             // 
@@ -259,7 +259,7 @@ namespace EcmServerCard
             this.deleteServer.Name = "deleteServer";
             this.deleteServer.Size = new System.Drawing.Size(118, 22);
             this.deleteServer.Text = "Удалить сервер";
-            this.deleteServer.ButtonClick += new System.EventHandler(this.deleteServer_ButtonClick);
+            this.deleteServer.ButtonClick += new System.EventHandler(this.DeleteServer_ButtonClick);
             // 
             // физическийToolStripMenuItem
             // 
@@ -267,7 +267,7 @@ namespace EcmServerCard
             this.физическийToolStripMenuItem.Name = "физическийToolStripMenuItem";
             this.физическийToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.физическийToolStripMenuItem.Text = "Физический";
-            this.физическийToolStripMenuItem.Click += new System.EventHandler(this.физическийToolStripMenuItem_Click);
+            this.физическийToolStripMenuItem.Click += new System.EventHandler(this.ФизическийToolStripMenuItem_Click);
             // 
             // виртуальныйToolStripMenuItem
             // 
@@ -275,16 +275,16 @@ namespace EcmServerCard
             this.виртуальныйToolStripMenuItem.Name = "виртуальныйToolStripMenuItem";
             this.виртуальныйToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.виртуальныйToolStripMenuItem.Text = "Виртуальный";
-            this.виртуальныйToolStripMenuItem.Click += new System.EventHandler(this.виртуальныйToolStripMenuItem_Click);
+            this.виртуальныйToolStripMenuItem.Click += new System.EventHandler(this.ВиртуальныйToolStripMenuItem_Click);
             // 
             // toolUpdate
             // 
-            this.toolUpdate.Image = global::EcmServerCard.Properties.Resources.refresh;
+            this.toolUpdate.Image = global::ServersView.Properties.Resources.refresh;
             this.toolUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolUpdate.Name = "toolUpdate";
             this.toolUpdate.Size = new System.Drawing.Size(133, 22);
             this.toolUpdate.Text = "Обновить данные";
-            this.toolUpdate.Click += new System.EventHandler(this.toolUpdate_Click);
+            this.toolUpdate.Click += new System.EventHandler(this.ToolUpdate_Click);
             // 
             // toolStripButton1
             // 
@@ -294,7 +294,7 @@ namespace EcmServerCard
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(119, 22);
             this.toolStripButton1.Text = "Экспорт в HTML";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.toolStripButton1.Click += new System.EventHandler(this.ToolStripButton1_Click);
             // 
             // toolStripButton2
             // 
@@ -303,7 +303,7 @@ namespace EcmServerCard
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(204, 22);
             this.toolStripButton2.Text = "Загрузить архив и удаленные";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            this.toolStripButton2.Click += new System.EventHandler(this.ToolStripButton2_Click);
             // 
             // bindingNavigator1
             // 
@@ -349,7 +349,7 @@ namespace EcmServerCard
             this.deletePhy.RightToLeftAutoMirrorImage = true;
             this.deletePhy.Size = new System.Drawing.Size(131, 22);
             this.deletePhy.Text = "Удалить физический";
-            this.deletePhy.Click += new System.EventHandler(this.deletePhy_Click);
+            this.deletePhy.Click += new System.EventHandler(this.DeletePhy_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -359,7 +359,7 @@ namespace EcmServerCard
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveFirstItem.Text = "Переместить в начало";
-            this.bindingNavigatorMoveFirstItem.Click += new System.EventHandler(this.bindingNavigatorMoveFirstItem_Click);
+            this.bindingNavigatorMoveFirstItem.Click += new System.EventHandler(this.BindingNavigatorMoveFirstItem_Click);
             // 
             // bindingNavigatorMovePreviousItem
             // 
@@ -369,7 +369,7 @@ namespace EcmServerCard
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMovePreviousItem.Text = "Переместить назад";
-            this.bindingNavigatorMovePreviousItem.Click += new System.EventHandler(this.bindingNavigatorMovePreviousItem_Click);
+            this.bindingNavigatorMovePreviousItem.Click += new System.EventHandler(this.BindingNavigatorMovePreviousItem_Click);
             // 
             // bindingNavigatorSeparator
             // 
@@ -398,7 +398,7 @@ namespace EcmServerCard
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveNextItem.Text = "Переместить вперед";
-            this.bindingNavigatorMoveNextItem.Click += new System.EventHandler(this.bindingNavigatorMoveNextItem_Click);
+            this.bindingNavigatorMoveNextItem.Click += new System.EventHandler(this.BindingNavigatorMoveNextItem_Click);
             // 
             // bindingNavigatorMoveLastItem
             // 
@@ -408,7 +408,7 @@ namespace EcmServerCard
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem.Text = "Переместить в конец";
-            this.bindingNavigatorMoveLastItem.Click += new System.EventHandler(this.bindingNavigatorMoveLastItem_Click);
+            this.bindingNavigatorMoveLastItem.Click += new System.EventHandler(this.BindingNavigatorMoveLastItem_Click);
             // 
             // bindingNavigatorSeparator2
             // 
@@ -609,7 +609,7 @@ namespace EcmServerCard
             this.button1.TabIndex = 17;
             this.button1.Text = "Внести \r\nизменения";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // bindingNavigator2
             // 
@@ -665,7 +665,7 @@ namespace EcmServerCard
             this.bindingNavigatorMoveFirstItem1.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveFirstItem1.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveFirstItem1.Text = "Переместить в начало";
-            this.bindingNavigatorMoveFirstItem1.Click += new System.EventHandler(this.bindingNavigatorMoveFirstItem1_Click);
+            this.bindingNavigatorMoveFirstItem1.Click += new System.EventHandler(this.BindingNavigatorMoveFirstItem1_Click);
             // 
             // bindingNavigatorMovePreviousItem1
             // 
@@ -675,7 +675,7 @@ namespace EcmServerCard
             this.bindingNavigatorMovePreviousItem1.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMovePreviousItem1.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMovePreviousItem1.Text = "Переместить назад";
-            this.bindingNavigatorMovePreviousItem1.Click += new System.EventHandler(this.bindingNavigatorMovePreviousItem1_Click);
+            this.bindingNavigatorMovePreviousItem1.Click += new System.EventHandler(this.BindingNavigatorMovePreviousItem1_Click);
             // 
             // bindingNavigatorSeparator3
             // 
@@ -704,7 +704,7 @@ namespace EcmServerCard
             this.bindingNavigatorMoveNextItem1.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveNextItem1.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveNextItem1.Text = "Переместить вперед";
-            this.bindingNavigatorMoveNextItem1.Click += new System.EventHandler(this.bindingNavigatorMoveNextItem1_Click);
+            this.bindingNavigatorMoveNextItem1.Click += new System.EventHandler(this.BindingNavigatorMoveNextItem1_Click);
             // 
             // bindingNavigatorMoveLastItem1
             // 
@@ -714,7 +714,7 @@ namespace EcmServerCard
             this.bindingNavigatorMoveLastItem1.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveLastItem1.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem1.Text = "Переместить в конец";
-            this.bindingNavigatorMoveLastItem1.Click += new System.EventHandler(this.bindingNavigatorMoveLastItem1_Click);
+            this.bindingNavigatorMoveLastItem1.Click += new System.EventHandler(this.BindingNavigatorMoveLastItem1_Click);
             // 
             // bindingNavigatorSeparator5
             // 
@@ -729,50 +729,50 @@ namespace EcmServerCard
             this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView3.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.ContextMenuStrip = this.contextMenuGrid2;
             this.dataGridView3.DataSource = this.bindingSource2;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView3.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView3.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView3.GridColor = System.Drawing.Color.DarkGray;
             this.dataGridView3.Location = new System.Drawing.Point(3, 267);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView3.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView3.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView3.RowHeadersVisible = false;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView3.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView3.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView3.RowTemplate.Height = 23;
             this.dataGridView3.Size = new System.Drawing.Size(783, 353);
             this.dataGridView3.TabIndex = 19;
             this.dataGridView3.VirtualMode = true;
-            this.dataGridView3.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellClick);
-            this.dataGridView3.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView3_DataError);
-            this.dataGridView3.SelectionChanged += new System.EventHandler(this.dataGridView3_SelectionChanged);
-            this.dataGridView3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.dataGridView3_MouseMove_1);
+            this.dataGridView3.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView3_CellClick);
+            this.dataGridView3.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataGridView3_DataError);
+            this.dataGridView3.SelectionChanged += new System.EventHandler(this.DataGridView3_SelectionChanged);
+            this.dataGridView3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DataGridView3_MouseMove_1);
             // 
             // contextMenuGrid2
             // 
@@ -785,27 +785,27 @@ namespace EcmServerCard
             // 
             // toolStripMenuItem2
             // 
-            this.toolStripMenuItem2.Image = global::EcmServerCard.Properties.Resources.remote;
+            this.toolStripMenuItem2.Image = global::ServersView.Properties.Resources.remote;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(210, 22);
             this.toolStripMenuItem2.Text = "подключиться по rdp";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.ToolStripMenuItem2_Click);
             // 
             // временноПриостановленToolStripMenuItem1
             // 
-            this.временноПриостановленToolStripMenuItem1.Image = global::EcmServerCard.Properties.Resources.disconnect;
+            this.временноПриостановленToolStripMenuItem1.Image = global::ServersView.Properties.Resources.disconnect;
             this.временноПриостановленToolStripMenuItem1.Name = "временноПриостановленToolStripMenuItem1";
             this.временноПриостановленToolStripMenuItem1.Size = new System.Drawing.Size(210, 22);
             this.временноПриостановленToolStripMenuItem1.Text = "пометить неактивным";
-            this.временноПриостановленToolStripMenuItem1.Click += new System.EventHandler(this.временноПриостановленToolStripMenuItem1_Click);
+            this.временноПриостановленToolStripMenuItem1.Click += new System.EventHandler(this.ВременноПриостановленToolStripMenuItem1_Click);
             // 
             // снятьМеткуНеактивностиToolStripMenuItem1
             // 
-            this.снятьМеткуНеактивностиToolStripMenuItem1.Image = global::EcmServerCard.Properties.Resources.connect;
+            this.снятьМеткуНеактивностиToolStripMenuItem1.Image = global::ServersView.Properties.Resources.connect;
             this.снятьМеткуНеактивностиToolStripMenuItem1.Name = "снятьМеткуНеактивностиToolStripMenuItem1";
             this.снятьМеткуНеактивностиToolStripMenuItem1.Size = new System.Drawing.Size(210, 22);
             this.снятьМеткуНеактивностиToolStripMenuItem1.Text = "снять метку неактивности";
-            this.снятьМеткуНеактивностиToolStripMenuItem1.Click += new System.EventHandler(this.снятьМеткуНеактивностиToolStripMenuItem1_Click);
+            this.снятьМеткуНеактивностиToolStripMenuItem1.Click += new System.EventHandler(this.СнятьМеткуНеактивностиToolStripMenuItem1_Click);
             // 
             // tableLayoutPanel1
             // 

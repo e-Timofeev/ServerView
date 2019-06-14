@@ -3,7 +3,7 @@ using System.Data;
 using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 
-namespace EcmServerCard
+namespace ServersView
 {
     /// <summary>
     /// Проверка доступа по сети для заданного списка хостов.
@@ -18,10 +18,9 @@ namespace EcmServerCard
         /// </summary>
         public static async Task<bool> PingAsync(string host)
         {
-            int time = (host == "sp13sql" || host == "192.168.2.51") ? 1500 : 1000;
             try
             {
-                PingReply reply = await new Ping().SendPingAsync(host, time);
+                PingReply reply = await new Ping().SendPingAsync(host);
                 if (reply.Status == IPStatus.Success)
                 {
                     return true;
@@ -43,7 +42,7 @@ namespace EcmServerCard
         /// </summary>
         /// <param name="dg">DataTable, переданный bindingSourse.</param>
         /// <param name="tableIndex">индекс таблицы 1-физических,2-виртуальных серверов</param>
-        public async void dgStatus(DataTable dg, int tableIndex)
+        public async void DgStatus(DataTable dg, int tableIndex)
         {
             int label;
 
@@ -66,7 +65,6 @@ namespace EcmServerCard
 
                         if (elemStr != string.Empty)
                         {
-                            //row[5] = await PingAsync(elemStr) ? await ConvertImageToByte._connection() : await ConvertImageToByte._disconnec();
                             row[5] = await PingAndUpdateAsync(new Ping(), elemStr);
                         }
                     }
@@ -77,7 +75,7 @@ namespace EcmServerCard
 
         private async Task<byte[]> PingAndUpdateAsync(Ping ping, string ip)
         {
-            var reply = await ping.SendPingAsync(ip, 1000);
+            var reply = await ping.SendPingAsync(ip);
             byte[] x;
 
             if (reply.Status == IPStatus.Success)
