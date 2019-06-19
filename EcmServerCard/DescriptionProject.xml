@@ -642,6 +642,31 @@
               обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
             </summary>
         </member>
+        <member name="P:ServersView.Properties.Resources._1leftarrow">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:ServersView.Properties.Resources._1rightarrow">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:ServersView.Properties.Resources._1rightarrow1">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:ServersView.Properties.Resources._2leftarrow">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:ServersView.Properties.Resources._2rightarrow">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
         <member name="P:ServersView.Properties.Resources.connect">
             <summary>
               Поиск локализованного ресурса типа System.Drawing.Bitmap.
@@ -668,6 +693,16 @@
             </summary>
         </member>
         <member name="P:ServersView.Properties.Resources.remote">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:ServersView.Properties.Resources.view_remove">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:ServersView.Properties.Resources.webexport">
             <summary>
               Поиск локализованного ресурса типа System.Drawing.Bitmap.
             </summary>

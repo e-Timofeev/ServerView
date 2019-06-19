@@ -54,7 +54,8 @@
     <NoWarn>1591; MSB3305</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>logo.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -82,51 +83,51 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EcmServerListDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Доп. классы\ConvertImageToByte.cs" />
-    <Compile Include="Формы\Archive.cs">
+    <Compile Include="Classes\ConvertImageToByte.cs" />
+    <Compile Include="Forms\Archive.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Формы\Archive.Designer.cs">
+    <Compile Include="Forms\Archive.Designer.cs">
       <DependentUpon>Archive.cs</DependentUpon>
     </Compile>
-    <Compile Include="Формы\MSTSC.cs">
+    <Compile Include="Forms\MSTSC.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Формы\MSTSC.Designer.cs">
+    <Compile Include="Forms\MSTSC.Designer.cs">
       <DependentUpon>MSTSC.cs</DependentUpon>
     </Compile>
-    <Compile Include="Доп. классы\CMD.cs" />
-    <Compile Include="Доп. классы\DB.cs" />
-    <Compile Include="Формы\Main.cs">
+    <Compile Include="Classes\CMD.cs" />
+    <Compile Include="Classes\DB.cs" />
+    <Compile Include="Forms\Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Формы\Main.Designer.cs">
+    <Compile Include="Forms\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Формы\NewServer.cs">
+    <Compile Include="Forms\NewServer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Формы\NewServer.Designer.cs">
+    <Compile Include="Forms\NewServer.Designer.cs">
       <DependentUpon>NewServer.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Формы\VirServer.cs">
+    <Compile Include="Forms\VirServer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Формы\VirServer.Designer.cs">
+    <Compile Include="Forms\VirServer.Designer.cs">
       <DependentUpon>VirServer.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Формы\Archive.resx">
+    <EmbeddedResource Include="Forms\Archive.resx">
       <DependentUpon>Archive.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Формы\MSTSC.resx">
+    <EmbeddedResource Include="Forms\MSTSC.resx">
       <DependentUpon>MSTSC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Формы\Main.resx">
+    <EmbeddedResource Include="Forms\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Формы\NewServer.resx">
+    <EmbeddedResource Include="Forms\NewServer.resx">
       <DependentUpon>NewServer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -139,7 +140,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Формы\VirServer.resx">
+    <EmbeddedResource Include="Forms\VirServer.resx">
       <DependentUpon>VirServer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="EcmServerListDataSet.xsc">
@@ -171,6 +172,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
+    <None Include="webexport.png" />
+    <None Include="view_remove.png" />
+    <None Include="Resources\2rightarrow.png" />
+    <None Include="Resources\2leftarrow.png" />
+    <None Include="Resources\1rightarrow1.png" />
+    <None Include="Resources\1rightarrow.png" />
+    <None Include="Resources\1leftarrow.png" />
     <None Include="Resources\remote.png" />
     <None Include="Resources\refresh.png" />
     <None Include="Resources\none.bmp" />
