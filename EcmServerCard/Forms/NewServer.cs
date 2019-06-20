@@ -23,7 +23,7 @@ namespace ServersView
         private void Cancel_Click(object sender, EventArgs e)
         {
             result = false;
-            this.Close();
+            Close();
         }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace ServersView
             if (checkBox3.Checked) { textBox4.Text = string.Empty; }
             if (checkBox4.Checked) { textBox4.Text = string.Empty; }
             result = true;
-            this.Close();
+            Close();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

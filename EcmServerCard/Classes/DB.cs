@@ -104,6 +104,7 @@ namespace ServersView
 
                         // запускаем событие об успешной загрузке данных.
                         GetDataCompleted?.Invoke();
+
                     }
                     catch (SqlException)
                     {
@@ -114,18 +115,20 @@ namespace ServersView
             }
             else
             {
-                MessageBox.Show("Не создано подключение к базе данных. Проверьте, что вы находитесь в сети ECM.\n", "ECMServersActive", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Не создано подключение к базе данных. Проверьте, что вы база доступна по сети.\n", "Production servers", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
 
         /// <summary>
-        /// Добавление нового серерва в таблицу физических серверов.
+        /// Добавление нового сервера в таблицу физических серверов.
         /// </summary>
         /// <param name="serv">имя сервера</param>
         /// <param name="ip">адрес</param>=х 
         /// <param name="dc">домен</param>
         /// <param name="desc">описание</param>
-        public static void InsertData(string serv, string ip, string dc, string desc)
+        /// <param name="InArhive">в архиве?</param> 
+        public static void InsertData(string serv, string ip, string dc, string desc, int InArhive = 1)
         {
             using (SqlConnection connect = new SqlConnection(Connection))
             {
@@ -133,13 +136,14 @@ namespace ServersView
                 {
                     command.Connection = connect;
                     command.CommandText = "INSERT INTO PhyServers" +
-                                          "(ServerName, IP, Domain, Description)" +
-                                          "VALUES (@ServerName, @IP, @Domain, @Description)";
+                                          "(ServerName, IP, Domain, Description, Arhive)" +
+                                          "VALUES (@ServerName, @IP, @Domain, @Description, @Arhive)";
 
                     command.Parameters.Add(new SqlParameter("@ServerName", SqlDbType.NVarChar));
                     command.Parameters.Add(new SqlParameter("@IP", SqlDbType.NVarChar));
                     command.Parameters.Add(new SqlParameter("@Domain", SqlDbType.NVarChar));
                     command.Parameters.Add(new SqlParameter("@Description", SqlDbType.NVarChar));
+                    command.Parameters.Add(new SqlParameter("@Arhive", SqlDbType.TinyInt));
                     try
                     {
                         connect.Open();
@@ -147,11 +151,12 @@ namespace ServersView
                         command.Parameters["@IP"].Value = ip;
                         command.Parameters["@Domain"].Value = dc;
                         command.Parameters["@Description"].Value = desc;
+                        command.Parameters["@Arhive"].Value = InArhive;
                         command.ExecuteNonQuery();
                     }
                     catch (SqlException ex)
                     {
-                        MessageBox.Show("Не удалось добавить физический сервер\n" + ex.Message, "ECMServersActive", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Не удалось добавить физический сервер\n" + ex.Message, "Production servers", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
@@ -195,7 +200,7 @@ namespace ServersView
                     }
                     catch (SqlException ex)
                     {
-                        MessageBox.Show("Не удалось добавить виртуальный сервер\n" + ex.Message, "ECMServersActive", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Не удалось добавить виртуальный сервер\n" + ex.Message, "Production servers", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
@@ -223,7 +228,7 @@ namespace ServersView
                     }
                     catch (SqlException ex)
                     {
-                        MessageBox.Show("Не удалось удалить физ. сервер\n" + ex.Message, "ECMServersActive", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Не удалось удалить физ. сервер\n" + ex.Message, "Production servers", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
@@ -250,7 +255,7 @@ namespace ServersView
                     }
                     catch (SqlException ex)
                     {
-                        MessageBox.Show("Не удалось удалить вир. сервер\n" + ex.Message, "ECMServersActive", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Не удалось удалить вир. сервер\n" + ex.Message, "Production servers", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
@@ -297,14 +302,14 @@ namespace ServersView
                         }
                         catch (SqlException ex)
                         {
-                            MessageBox.Show("Не удалось обновить данные в таблице физ. серверов\n" + ex.Message, "ECMServersActive", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Не удалось обновить данные в таблице физ. серверов\n" + ex.Message, "Production servers", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Таблица пустая.", "ECMServersActive", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Таблица пустая.", "Production servers", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -353,14 +358,14 @@ namespace ServersView
                         }
                         catch (SqlException ex)
                         {
-                            MessageBox.Show("Не удалось обновить данные в таблице вир. серверов\n" + ex.Message, "ECMServersActive", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Не удалось обновить данные в таблице вир. серверов\n" + ex.Message, "Production servers", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Таблица пустая.", "ECMServersActive", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Таблица пустая.", "Production servers", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -385,7 +390,7 @@ namespace ServersView
                     }
                     catch (SqlException ex)
                     {
-                        MessageBox.Show("Сервер не удалось пометить как временно неиспользуемый.\n" + ex.Message, "ECMServersActive", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Сервер не удалось пометить как временно неиспользуемый.\n" + ex.Message, "Production servers", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
@@ -411,7 +416,7 @@ namespace ServersView
                     }
                     catch (SqlException ex)
                     {
-                        MessageBox.Show("Сервер не удалось пометить как временно неиспользуемый.\n" + ex.Message, "ECMServersActive", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Сервер не удалось пометить как временно неиспользуемый.\n" + ex.Message, "Production servers", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
@@ -424,7 +429,7 @@ namespace ServersView
         /// <param name="ServerID"></param>
         public static void UpdateStatusPhy2(byte ServerID)
         {
-            string command = string.Format("UPDATE PhyServers SET [Archive] = 0 where ID = '{0}'", ServerID);
+            string command = string.Format("UPDATE PhyServers SET [Arhive] = 0 where ID = '{0}'", ServerID);
             using (SqlConnection connect = new SqlConnection(Connection))
             {
                 using (SqlCommand cmd = new SqlCommand(command, connect))
@@ -437,7 +442,7 @@ namespace ServersView
                     }
                     catch (SqlException ex)
                     {
-                        MessageBox.Show("Сервер не удалось пометить как временно неиспользуемый.\n" + ex.Message, "ECMServersActive", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Не удалось снять метку неактивности.\n" + ex.Message, "Production servers", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
@@ -463,7 +468,7 @@ namespace ServersView
                     }
                     catch (SqlException ex)
                     {
-                        MessageBox.Show("Сервер не удалось пометить как временно неиспользуемый.\n" + ex.Message, "ECMServersActive", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Не удалось снять метку неактивности..\n" + ex.Message, "Production servers", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }

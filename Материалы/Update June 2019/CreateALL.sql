@@ -141,7 +141,7 @@ CREATE TABLE [dbo].[PhyServers](
 	[Domain] [nvarchar](25) NULL,
 	[Description] [nvarchar](500) NULL,
 	[Status] [image] NULL,
-	[Arhive] [tinyint] NULL,
+	[Archive] [tinyint] NULL,
  CONSTRAINT [PK_PhyServers] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 
@@ -46,8 +45,6 @@ namespace ServersView
         {
             int label;
 
-            List<Task<byte[]>> tasks = new List<Task<byte[]>>();
-
             if (dg.Rows.Count > 0)
             {
                 foreach (DataRow row in dg.Rows)
@@ -75,14 +72,21 @@ namespace ServersView
 
         private async Task<byte[]> PingAndUpdateAsync(Ping ping, string ip)
         {
-            var reply = await ping.SendPingAsync(ip);
             byte[] x;
-
-            if (reply.Status == IPStatus.Success)
-                x = ConvertImageToByte._connection();
-            else
+            try
+            {
+                var reply = await ping.SendPingAsync(ip);           
+                if (reply.Status == IPStatus.Success)
+                    x = ConvertImageToByte._connection();
+                else
+                    x = ConvertImageToByte._disconnec();
+                return x;
+            }
+            catch
+            {
                 x = ConvertImageToByte._disconnec();
-            return x;
+                return x;
+            }
         }
         #endregion
     }

@@ -42,6 +42,8 @@ namespace ServersView
                     break;
             }
         }
+
+        public MSTSC(string ip) : this() { _server = ip; }
         #endregion
 
         #region Обработчики
@@ -57,9 +59,9 @@ namespace ServersView
             {
                 rdp.Dock = DockStyle.Fill;
                 rdp.Server = _server;
-                rdp.UserName = _login;
+                //rdp.UserName = _login;
                 IMsTscNonScriptable secured = (IMsTscNonScriptable)rdp.GetOcx();
-                secured.ClearTextPassword = _pass;
+               // secured.ClearTextPassword = _pass;
                 rdp.Connect();
             }
             catch

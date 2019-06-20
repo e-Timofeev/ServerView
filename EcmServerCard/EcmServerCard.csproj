@@ -132,14 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Forms\VirServer.resx">
       <DependentUpon>VirServer.cs</DependentUpon>
     </EmbeddedResource>
@@ -158,6 +153,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -171,9 +171,9 @@
     <None Include="Resources\logo.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="logo.ico" />
-    <None Include="webexport.png" />
-    <None Include="view_remove.png" />
+    <None Include="Resources\hide.png" />
+    <None Include="Resources\webexport.png" />
+    <None Include="Resources\view_remove.png" />
     <None Include="Resources\2rightarrow.png" />
     <None Include="Resources\2leftarrow.png" />
     <None Include="Resources\1rightarrow1.png" />
@@ -181,7 +181,6 @@
     <None Include="Resources\1leftarrow.png" />
     <None Include="Resources\remote.png" />
     <None Include="Resources\refresh.png" />
-    <None Include="Resources\none.bmp" />
     <None Include="Resources\connect.png" />
     <None Include="Resources\disconnect.png" />
   </ItemGroup>

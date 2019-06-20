@@ -66,7 +66,7 @@ namespace ServersView
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Не удалось очистить datagridview: " + grid.Name + " \n" + ex.Message, "ECMServersActive", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Не удалось очистить datagridview: " + grid.Name + " \n" + ex.Message, "Production servers", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
@@ -116,7 +116,7 @@ namespace ServersView
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Не удалось выполнить апдейт таблицы в методе UpdateAllDataGridView\n" + ex.Message, "ECMServersActive", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Не удалось выполнить апдейт таблицы в методе UpdateAllDataGridView\n" + ex.Message, "Production servers", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
@@ -184,7 +184,7 @@ namespace ServersView
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Ошибка в выделении всей строки\n" + ex.Message, "ECMServersActive", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ошибка в выделении всей строки\n" + ex.Message, "Production servers", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -200,7 +200,7 @@ namespace ServersView
             StringBuilder strHTMLBuilder = new StringBuilder();
             strHTMLBuilder.Append("<html >");
             strHTMLBuilder.Append(@"<head>
-                                  <title>Тестовые серверы EcmGroup</title>");
+                                  <title>Список серверов</title>");
             strHTMLBuilder.Append("</head>");
             strHTMLBuilder.Append("<body>");
             strHTMLBuilder.Append(@"<table border='1px' 
@@ -276,21 +276,21 @@ namespace ServersView
 
                     string HtmlBody = ExportDatatableToHtml(DataSet.Tables[0]);
                     string documents = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-                    File.WriteAllText(documents + @"\Серверы компании (~тестовые сервера).html", HtmlBody, Encoding.UTF8);
+                    File.WriteAllText(documents + @"\Серверы компании.html", HtmlBody, Encoding.UTF8);
 
                     MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                     DialogResult result;
 
-                    result = MessageBox.Show("Хотите открыть полученный файл?", "ECMServersActive", buttons, MessageBoxIcon.Question);
+                    result = MessageBox.Show("Хотите открыть полученный файл?", "Production servers", buttons, MessageBoxIcon.Question);
 
                     if (result == DialogResult.Yes)
                     {
-                        Process.Start(documents + @"\Серверы компании (~тестовые сервера).html");
+                        Process.Start(documents + @"\Серверы компании.html");
                     }
                 }
                 catch (SqlException ex)
                 {
-                    MessageBox.Show("Не создано подключение к базе данных\n" + ex.Message, "ECMServersActive", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Не создано подключение к базе данных\n" + ex.Message, "Production servers", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -314,15 +314,14 @@ namespace ServersView
                     DB.GetDataCompleted += SetGridProperties;
                     DB.GetData(bindingSource1, bindingSource2);
                 }));
-                //SetGridProperties();
             }
             catch (Exception)
             {
-                MessageBox.Show("Не создано подключение к базе данных. Попробуйте обновить данные и проверить доступ sp13sql.\n", "ECMServersActive", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Не создано подключение к базе данных. Попробуйте обновить данные и проверить доступ к базе.\n", "Production servers", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
-     
+
         /// <summary>
         /// Обработчик сохранения всех изменений в базу.
         /// </summary>
@@ -354,7 +353,7 @@ namespace ServersView
                 }
                 else
                 {
-                    foreach (Control TB in this.Controls)
+                    foreach (Control TB in Controls)
                     {
                         if (TB.GetType() == typeof(TextBox))
                             TB.Text = string.Empty;
@@ -391,7 +390,7 @@ namespace ServersView
                 }
                 else
                 {
-                    foreach (Control TB in this.Controls)
+                    foreach (Control TB in Controls)
                     {
                         if (TB.GetType() == typeof(TextBox))
                             TB.Text = string.Empty;
@@ -492,7 +491,7 @@ namespace ServersView
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "ECMServersActive", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Production servers", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
@@ -583,16 +582,16 @@ namespace ServersView
             bool _Domain = domain.Trim() == string.Empty || domain == null ? true : false;
 
             // Если ip и домен заданы, при этом домен, действительно, относится к ecm.
-            if (!_adress && (!_Domain && (domain.Trim().ToLower().Contains(_domainEN) || domain.Trim().ToLower().Contains(_domainRU))))
+            if (true)//!_adress && (!_Domain && (domain.Trim().ToLower().Contains(_domainEN) || domain.Trim().ToLower().Contains(_domainRU))))
             {
                 if (await CMD.PingAsync(adress))
                 {
-                    MSTSC mstsc = new MSTSC(adress.Trim(), _domainEN);
+                    MSTSC mstsc = new MSTSC(adress.Trim());//, _domainEN);
                     mstsc.Show();
                 }
                 else
                 {
-                    MessageBox.Show("Сервер не в сети. Обновите данные и проверьте подключение", "ECMServersActive", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Сервер не в сети. Обновите данные и проверьте подключение", "Production servers", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -601,13 +600,13 @@ namespace ServersView
             {
                 if (_adress)
                 {
-                    MessageBox.Show("Не задан IP адрес подключаемого сервера.", "ECMServersActive", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Не задан IP адрес подключаемого сервера.", "Production servers", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
                 // Проверка по домену не проходит.
                 else
                 {
-                    MessageBox.Show("Не указан или некорректно задан домен сервера.", "ECMServersActive", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Не указан или некорректно задан домен сервера.", "Production servers", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
             }
@@ -636,7 +635,7 @@ namespace ServersView
                 }
                 else
                 {
-                    MessageBox.Show("Сервер не в сети. Обновите данные и проверьте подключение", "ECMServersActive", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Сервер не в сети. Обновите данные и проверьте подключение", "Production servers", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -645,12 +644,12 @@ namespace ServersView
             {
                 if (_adress)
                 {
-                    MessageBox.Show("Не задан IP адрес подключаемого сервера.", "ECMServersActive", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Не задан IP адрес подключаемого сервера.", "Production servers", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
                 else
                 {
-                    MessageBox.Show("Не указан или некорректно задан домен сервера.", "ECMServersActive", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Не указан или некорректно задан домен сервера.", "Production servers", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
             }
@@ -664,7 +663,7 @@ namespace ServersView
                 }
                 else
                 {
-                    MessageBox.Show("Сервер не в сети. Обновите данные и проверьте подключение", "ECMServersActive", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Сервер не в сети. Обновите данные и проверьте подключение", "Production servers", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -803,5 +802,31 @@ namespace ServersView
             UpdateAllDataGridView();
         }
 
+        /// <summary>
+        /// Скрыть блок с виртуальными серверами, на случай если это не предусмотрено.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HideVirtServs_Click(object sender, EventArgs e)
+        {
+            var styles = tableLayoutPanel2.RowStyles;
+
+            if (bindingNavigator2.Visible)
+            {
+                bindingNavigator2.Visible = false;
+                dataGridView3.Visible = false;             
+                for (int i = 0; i < styles.Count; i++)
+                {
+                    if (i != 1) styles[i].Height = 0;
+                }
+            }
+            else
+            {
+                styles[1].Height = 37.5F;
+                styles[3].Height = 62.5F;
+                bindingNavigator2.Visible = true;
+                dataGridView3.Visible = true;
+            }
+        }
     }
 }

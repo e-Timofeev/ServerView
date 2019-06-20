@@ -210,14 +210,15 @@
             <param name="main">Главная.</param>
             <param name="detail">Дочерняя.</param>
         </member>
-        <member name="M:ServersView.DB.InsertData(System.String,System.String,System.String,System.String)">
+        <member name="M:ServersView.DB.InsertData(System.String,System.String,System.String,System.String,System.Int32)">
             <summary>
-            Добавление нового серерва в таблицу физических серверов.
+            Добавление нового сервера в таблицу физических серверов.
             </summary>
             <param name="serv">имя сервера</param>
             <param name="ip">адрес</param>=х 
             <param name="dc">домен</param>
             <param name="desc">описание</param>
+            <param name="InArhive">в архиве?</param> 
         </member>
         <member name="M:ServersView.DB.InsertData(System.String,System.String,System.String,System.String,System.Byte)">
             <summary>
@@ -516,6 +517,13 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
+        <member name="M:ServersView.Main.HideVirtServs_Click(System.Object,System.EventArgs)">
+            <summary>
+            Скрыть блок с виртуальными серверами, на случай если это не предусмотрено.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="F:ServersView.Main.components">
             <summary>
             Требуется переменная конструктора.
@@ -673,6 +681,11 @@
             </summary>
         </member>
         <member name="P:ServersView.Properties.Resources.disconnect">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:ServersView.Properties.Resources.hide">
             <summary>
               Поиск локализованного ресурса типа System.Drawing.Bitmap.
             </summary>
