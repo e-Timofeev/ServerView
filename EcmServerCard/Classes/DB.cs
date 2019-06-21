@@ -16,7 +16,7 @@ namespace ServersView
         /// </summary>
         public delegate void DataCompleted();
         /// <summary>
-        /// Событие об успехе загрузки данных.
+        /// Событие об успешной загрузке данных.
         /// </summary>
         public static event DataCompleted GetDataCompleted;
 
@@ -26,7 +26,7 @@ namespace ServersView
         /// SQL команда для выборки всех физических серверов.
         /// </summary>
         public static string CommandMain =
-        @"Select ID, ServerName as 'Имя сервера', IP as 'Адрес', Domain as 'Домен', Description as 'Описание', Status as 'Состояние', Arhive from PhyServers";
+        @"Select ID, ServerName as 'Имя сервера', IP as 'Адрес', Domain as 'Домен', Description as 'Описание', Status as 'Состояние', Archive from PhyServers";
 
         /// <summary>
         /// SQL команда для выборки виртуальных серверов.
@@ -127,8 +127,8 @@ namespace ServersView
         /// <param name="ip">адрес</param>=х 
         /// <param name="dc">домен</param>
         /// <param name="desc">описание</param>
-        /// <param name="InArhive">в архиве?</param> 
-        public static void InsertData(string serv, string ip, string dc, string desc, int InArhive = 1)
+        /// <param name="InArchive">в архиве?</param> 
+        public static void InsertData(string serv, string ip, string dc, string desc, int InArchive = 1)
         {
             using (SqlConnection connect = new SqlConnection(Connection))
             {
@@ -136,14 +136,14 @@ namespace ServersView
                 {
                     command.Connection = connect;
                     command.CommandText = "INSERT INTO PhyServers" +
-                                          "(ServerName, IP, Domain, Description, Arhive)" +
-                                          "VALUES (@ServerName, @IP, @Domain, @Description, @Arhive)";
+                                          "(ServerName, IP, Domain, Description, Archive)" +
+                                          "VALUES (@ServerName, @IP, @Domain, @Description, @Archive)";
 
                     command.Parameters.Add(new SqlParameter("@ServerName", SqlDbType.NVarChar));
                     command.Parameters.Add(new SqlParameter("@IP", SqlDbType.NVarChar));
                     command.Parameters.Add(new SqlParameter("@Domain", SqlDbType.NVarChar));
                     command.Parameters.Add(new SqlParameter("@Description", SqlDbType.NVarChar));
-                    command.Parameters.Add(new SqlParameter("@Arhive", SqlDbType.TinyInt));
+                    command.Parameters.Add(new SqlParameter("@Archive", SqlDbType.TinyInt));
                     try
                     {
                         connect.Open();
@@ -151,7 +151,7 @@ namespace ServersView
                         command.Parameters["@IP"].Value = ip;
                         command.Parameters["@Domain"].Value = dc;
                         command.Parameters["@Description"].Value = desc;
-                        command.Parameters["@Arhive"].Value = InArhive;
+                        command.Parameters["@Archive"].Value = InArchive;
                         command.ExecuteNonQuery();
                     }
                     catch (SqlException ex)
@@ -429,7 +429,7 @@ namespace ServersView
         /// <param name="ServerID"></param>
         public static void UpdateStatusPhy2(byte ServerID)
         {
-            string command = string.Format("UPDATE PhyServers SET [Arhive] = 0 where ID = '{0}'", ServerID);
+            string command = string.Format("UPDATE PhyServers SET [Archive] = 0 where ID = '{0}'", ServerID);
             using (SqlConnection connect = new SqlConnection(Connection))
             {
                 using (SqlCommand cmd = new SqlCommand(command, connect))

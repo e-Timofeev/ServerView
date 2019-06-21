@@ -189,7 +189,7 @@
         </member>
         <member name="E:ServersView.DB.GetDataCompleted">
             <summary>
-            Событие об успехе загрузки данных.
+            Событие об успешной загрузке данных.
             </summary>
         </member>
         <member name="F:ServersView.DB.CommandMain">
@@ -218,7 +218,7 @@
             <param name="ip">адрес</param>=х 
             <param name="dc">домен</param>
             <param name="desc">описание</param>
-            <param name="InArhive">в архиве?</param> 
+            <param name="InArchive">в архиве?</param> 
         </member>
         <member name="M:ServersView.DB.InsertData(System.String,System.String,System.String,System.String,System.Byte)">
             <summary>
