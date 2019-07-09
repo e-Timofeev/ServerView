@@ -1,3 +1,0 @@
-           <!-- connectionString="Data Source=192.168.2.51;Initial Catalog=EcmServerList;Persist Security Info=false;
-            User ID=ecm;Password=123qweASD;Connection Timeout=5"
-            providerName="System.Data.SqlClient" />-->
